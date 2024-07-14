@@ -4,6 +4,14 @@
     --backgroundTexto: #E5E5E5; 
     --colorPlaceHolder: #0A3871;
     --backgroundResultado: #FFFFFF;
+    --footerColor: rgb(19,38,92);
+    --copiarDesencText: rgb(19,38,92);
+    --copiarDesencBackground: #D8DFE8;
+    --encriptarText: white;
+    --encriptarBackground: rgb(19,38,92);
+    --borderBoton: rgb(19,38,92);
+    --borderState: ridge;
+    --hooverColor: hwb(240 28% 45%);
 }
 
 /* Estilo principal, define el ancho y centrado del contenedor principal */
@@ -91,4 +99,44 @@ textarea:focus {
     visibility: visible;
     margin: 2%;
     font-size: 16px;
+}
+
+.copiar{
+    margin: 2%;
+    width: 40%;
+    padding: 3% 0;
+    font-size: 16px;
+    border: var(--borderState);
+    color: var(--copiarDesencText);
+    background-color: var(--copiarDesencBackground);
+    border-radius: 15px;
+    border-width: thin;
+    border-color: var(--borderBoton);
+    transition: 1s all;
+    cursor: pointer;
+    display: none;
+}
+
+.botones{
+    display: block;
+}
+
+.iconify{
+    font-size: 12px;
+    color: #808080;
+    margin-bottom: 1%;
+}
+
+.encriptar{
+
+    margin: auto;
+    width: 20%;
+    padding: 1% 0;
+    font-size: 16px;
+    color: var(--encriptarText);
+    border: none;
+    background-color: var(--encriptarBackground);
+    border-radius: 15px;
+    transition: 1s all;
+    cursor: pointer;
 }

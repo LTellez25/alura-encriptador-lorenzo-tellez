@@ -13,15 +13,16 @@
     <main class="principal">
         <textarea name="text" id="texto_usuario" class="texto_usuario" placeholder="Ingrese el texto aquí"></textarea>
 
-        <section>
-            <input type="submit" value="Encriptar">
-            <input type="submit" value="Desencriptar">
+        <section class="botones">
+            <p><span class="iconify" data-icon="bi:exclamation-circle-fill"></span> Solo letras minúsculas y sin acento</p>
+            <input type="submit" value="Encriptar" class="encriptar" id="encriptar">
+            <input type="submit" value="Desencriptar" class="desencriptar" id="desencriptar">
         </section>
     
         <div class="resultado" id="resultado">
 
             <section class="resultado_mensaje" id="resultado_mensaje">
-                <textarea name="text" id="texto_resultado" cols="50" rows="12"></textarea>
+                <textarea name="text" id="texto_resultado" class="texto_usuario"  cols="50" rows="12"></textarea>
                 <input type="submit" value="Copiar" class="copiar" id="copiar">
             </section>
     
@@ -36,4 +37,6 @@
 
     
 </body>
+
+<script src="script.js"></script>
 </html>
