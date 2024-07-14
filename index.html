@@ -4,31 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador Alura - Lorenzo Téllez</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
 
     </header>
-    <main>
-        <textarea name="text" id="texto_usuario" placeholder="Ingrese el texto aquí"></textarea>
+    <main class="principal">
+        <textarea name="text" id="texto_usuario" class="texto_usuario" placeholder="Ingrese el texto aquí"></textarea>
+
+        <section>
+            <input type="submit" value="Encriptar">
+            <input type="submit" value="Desencriptar">
+        </section>
+    
+        <div class="resultado" id="resultado">
+
+            <section class="resultado_mensaje" id="resultado_mensaje">
+                <textarea name="text" id="texto_resultado" cols="50" rows="12"></textarea>
+                <input type="submit" value="Copiar" class="copiar" id="copiar">
+            </section>
+    
+            <section>
+                <img src="assets/Muñeco.png" alt="Imagen_muñeco" id="muñeco">
+                <h2 id="mensaje_inicial">Ningún mensaje fue encontrado</h2>
+                <p id="mensaje_inicial_2">Ingresa el texto que desea encriptar o desencriptar</p>
+            </section>
+
+        </div>
     </main>
 
-    <section>
-        <input type="submit" value="Encriptar">
-        <input type="submit" value="Desencriptar">
-    </section>
-
-    <div>
-        <section>
-            <textarea name="text" id="texto_resultado"></textarea>
-            <input type="submit" value="Copiar" class="copiar" id="copiar">
-        </section>
-
-        <section>
-            <img src="assets/Muñeco.png" alt="Imagen_muñeco" id="muñeco">
-            <h2 id="mensaje_inicial">Ningún mensaje fue encontrado</h2>
-            <p id="mensaje_inicial_2">Ingresa el texto que desea encriptar o desencriptar</p>
-        </section>
-    </div>
+    
 </body>
 </html>

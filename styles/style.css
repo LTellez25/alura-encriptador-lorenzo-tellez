@@ -1,0 +1,94 @@
+/* Variables CSS para colores */
+:root {
+    --textArea: #13265C;
+    --backgroundTexto: #E5E5E5; 
+    --colorPlaceHolder: #0A3871;
+    --backgroundResultado: #FFFFFF;
+}
+
+/* Estilo principal, define el ancho y centrado del contenedor principal */
+.principal {
+    width: 90%;
+    margin: auto;
+}
+
+/* Estilos para el área de texto del usuario */
+.texto_usuario {
+    height: 50%;
+    margin: 2% auto 0;
+    display: inline-block;
+    font-size: 32px;
+    color: var(--textArea);
+    border: none;
+    background-color: var(--backgroundTexto);
+    resize: none;
+    transition: 1; /* Debería ser transition: 1s para indicar segundos */
+}
+
+/* Elimina el borde al enfocarse en el textarea */
+textarea:focus {
+    outline: none !important;
+}
+
+/* Estilo para el texto de los placeholders */
+::placeholder {
+    color: var(--colorPlaceHolder);
+    opacity: 0.5;
+}
+
+/* Estilos para la sección de resultados */
+.resultado {
+    float: right;
+    background-color: var(--backgroundResultado);
+    text-align: center;
+    width: 35%;
+    height: 90%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border-radius: 32px;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+}
+
+/* Estilos para la imagen dentro del contenedor de resultados */
+#muñeco {
+    visibility: visible;
+    user-select: none; /* Elimina la selección de texto en varias versiones de navegadores */
+}
+
+/* Ajusta el tamaño de la imagen dentro del contenedor de resultados */
+.resultado img {
+    width: 80%;
+}
+
+/* Estilo para el mensaje de resultado */
+#resultado_mensaje {
+    padding: 30px 20px;
+}
+
+/* Estilos para el texto del resultado */
+#texto_resultado {
+    width: 100%;
+    height: 90%;
+    font-size: 24px;
+    color: #808080;
+    text-align: left;
+    visibility: visible;
+    background-color: var(--backgroundResultado);
+    display: none; 
+}
+
+/* Estilo para el mensaje inicial */
+#mensaje_inicial {
+    visibility: visible;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilo para el segundo mensaje inicial */
+#mensaje_inicial_2 {
+    visibility: visible;
+    margin: 2%;
+    font-size: 16px;
+}
