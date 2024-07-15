@@ -1,55 +1,97 @@
-/* Variables CSS para colores */
-:root {
-    --textArea: #13265C;
-    --backgroundTexto: #E5E5E5; 
-    --colorPlaceHolder: #0A3871;
-    --backgroundResultado: #FFFFFF;
-    --footerColor: rgb(19,38,92);
-    --copiarDesencText: rgb(19,38,92);
+:root{
+    --textAreaColor: #13265c;
+    --colorPlaceholder: #00008b;
+    --backgroundTexto: #E5E5E5;
+    --footerColor: #13265c;
+    --backgroundMensajes: #ffffff;
+    --copiarDesencText: #13265c;
     --copiarDesencBackground: #D8DFE8;
-    --encriptarText: white;
-    --encriptarBackground: rgb(19,38,92);
-    --borderBoton: rgb(19,38,92);
+    --encriptarText: #ffffff;
+    --encriptarBackground: #13275d;
+    --borderBoton: #13265c;
     --borderState: ridge;
-    --hooverColor: hwb(240 28% 45%);
+    --hooverColor: #47478c;
+    
 }
 
-/* Estilo principal, define el ancho y centrado del contenedor principal */
-.principal {
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding y el border no afecten el tamaño total */
+}
+
+
+
+body{
+    background-color: #E5E5E5;
+    font-family: 'inter';
+    transition: opacity 1s; 
+    margin: 0;
+    padding: 0;
+}
+
+header :focus{
+    outline-style: none;
+}
+
+.logo{
+
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+#logo2 {
+    margin-top: -20px; /* Ajusta el margen superior negativo para subir la imagen */
+}
+
+
+
+.principal{
     width: 90%;
     margin: auto;
+    
 }
 
-/* Estilos para el área de texto del usuario */
-.texto_usuario {
-    height: 50%;
+.texto{
+    height: 5%;
     margin: 2% auto 0;
     display: inline-block;
     font-size: 32px;
-    color: var(--textArea);
+    color: var(--textAreaColor);
     border: none;
-    background-color: var(--backgroundTexto);
+    background-color: var(--backgroundTexto) ;
     resize: none;
-    transition: 1; /* Debería ser transition: 1s para indicar segundos */
+    transition: 1s;
 }
 
-/* Elimina el borde al enfocarse en el textarea */
-textarea:focus {
+
+textarea:focus{
     outline: none !important;
 }
 
-/* Estilo para el texto de los placeholders */
-::placeholder {
-    color: var(--colorPlaceHolder);
+::placeholder{
+    color: var(--colorPlaceholder);
     opacity: 0.5;
 }
 
-/* Estilos para la sección de resultados */
-.resultado {
+.resultado{
     float: right;
-    background-color: var(--backgroundResultado);
+    background-color: var(--backgroundMensajes);
     text-align: center;
-    width: 35%;
+    width: 25%;
     height: 90%;
     vertical-align: top;
     margin: 0 1.5%;
@@ -57,48 +99,55 @@ textarea:focus {
     box-sizing: border-box;
     border-radius: 32px;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    transition: 1s;
+
 }
 
-/* Estilos para la imagen dentro del contenedor de resultados */
-#muñeco {
-    visibility: visible;
-    user-select: none; /* Elimina la selección de texto en varias versiones de navegadores */
-}
-
-/* Ajusta el tamaño de la imagen dentro del contenedor de resultados */
-.resultado img {
+.resultado img{
     width: 80%;
 }
 
-/* Estilo para el mensaje de resultado */
-#resultado_mensaje {
+.advertencia img {
+    vertical-align: middle; /* Ajusta el ícono verticalmente al medio del texto */
+    margin-bottom: 2px; /* Ajusta este valor para bajar el ícono horizontalmente */
+}
+
+
+#muneco{
+    visibility: visible;
+}
+
+.resultado_inicial{
+    font-size: 24px;
+    font-weight: bold;
+}
+    
+.resultado_inicial_2{
+    margin: 2%;
+    font-size: 16px;
+}
+
+#resultado_mensaje{
     padding: 30px 20px;
 }
 
-/* Estilos para el texto del resultado */
-#texto_resultado {
+#texto_resultado{
     width: 100%;
     height: 90%;
     font-size: 24px;
     color: #808080;
     text-align: left;
     visibility: visible;
-    background-color: var(--backgroundResultado);
-    display: none; 
+    background-color: var(--backgroundMensajes);
+    display: none;
 }
 
-/* Estilo para el mensaje inicial */
-#mensaje_inicial {
+#mensaje_inicial{
     visibility: visible;
-    font-size: 24px;
-    font-weight: bold;
 }
 
-/* Estilo para el segundo mensaje inicial */
-#mensaje_inicial_2 {
+#mensaje_inicial_2{
     visibility: visible;
-    margin: 2%;
-    font-size: 16px;
 }
 
 .copiar{
@@ -119,9 +168,14 @@ textarea:focus {
 
 .botones{
     display: block;
+    justify-content: flex-start; /* Mueve los elementos al principio del contenedor */
+    align-items: center;
+    gap: 100px; /* Espacio entre los botones */
+    margin-left: 10%; /* Ajusta el margen para mover a la derecha */
+    
 }
 
-.iconify{
+.advertencia{
     font-size: 12px;
     color: #808080;
     margin-bottom: 1%;
@@ -139,4 +193,229 @@ textarea:focus {
     border-radius: 15px;
     transition: 1s all;
     cursor: pointer;
+    
+}
+
+
+.desencriptar{
+    margin-left: 2%;
+    width: 20%;
+    padding: 1% 0;
+    font-size: 16px;
+    border: var(--borderState);
+    color: var(--copiarDesencText);
+    background-color: var(--copiarDesencBackground);
+    border-width: thin;
+    border-color: var(--borderBoton);
+    border-radius: 15px;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+.encriptar:hover, .desencriptar:hover, .copiar:hover{
+    background-color: var(--hooverColor);
+}
+
+footer{
+    text-align: center;
+    margin: 1%;
+    color: var(--footerColor);
+    transition: 1s;
+}
+
+a{
+    color: var(--footerColor);
+    text-decoration-line: none;
+    transition: 1s;
+}
+
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080; /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+  
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #00000033;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    height: auto;
+    width: 25%; /* Ancho del modal en pantallas grandes */
+    margin: 15% auto; /* Margen para centrar verticalmente en pantallas grandes */
+    animation: scaleAnimation 2s infinite;
+}
+  
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+  
+.close:hover,
+.close:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.preload .principal {
+    opacity: 0; /* Oculta el contenido principal mientras se muestra el preloader */
+    transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
+}
+
+/* Estilos del preloader */
+
+#preloader_4 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Fondo del preloader */
+    z-index: 9999; /* Asegura que el preloader esté por encima de otros elementos */
+}
+
+#preloader_4 span {
+    width: 20px;
+    height: 20px;
+    background: #3498db;
+    opacity: 0.5;
+    border-radius: 20px;
+    animation: preloader_4 1s infinite ease-in-out;
+}
+
+#preloader_4 span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#preloader_4 span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+#preloader_4 span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+#preloader_4 span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+@keyframes preloader_4 {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0px);
+        box-shadow: 0px 0px 3px #0000001a;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px);
+        background: #f1c40f;
+        box-shadow: 0px 20px 3px #0000000d;
+    }
+}
+
+/* Estilos para mostrar el contenido después de la carga */
+
+.principal {
+    opacity: 1; /* Asegura que el contenido principal sea visible después de la carga */
+    transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
+}   
+
+@media screen and (max-width:1024px){
+
+    .logo{
+        margin: 10% auto;
+    }
+
+    .texto,.botones{
+        display: block;
+        width: 100%;
+        margin: 5% auto;
+    }
+
+    #texto_usuario{
+        height: 5em;
+    }
+
+    #texto_resultado{
+        height: 5em;
+    }
+
+    .resultado{
+        width: 100%;
+        float: none;
+        display: block;
+        margin: auto;
+    }
+
+    .resultado_mensaje{
+        padding-top: 3em;
+        padding-bottom: 3em;
+    }
+
+    .encriptar,.desencriptar{
+        width: 45%;
+        margin: 2%;
+        padding: 2% 0;
+    }
+
+    .desencriptar:hover, .copiar:hover{
+        background-color: #d8dfe8;
+    }
+
+    .encriptar:hover{
+        background-color: #00008b;
+    }
+
+    #muneco{
+        display: none;
+    }
+
+    .modal-content {
+        width: 80%; /* Ancho del modal en dispositivos más pequeños */
+        margin: 15% auto; /* Margen para centrar verticalmente en dispositivos más pequeños */
+    }
+
+    #preloader_4 span {
+        width: 15px;
+        height: 15px;
+    }
+
+    #preloader_4 span:nth-child(2) {
+        left: 15px;
+    }
+
+    #preloader_4 span:nth-child(3) {
+        left: 30px;
+    }
+
+    #preloader_4 span:nth-child(4) {
+        left: 45px;
+    }
+
+    #preloader_4 span:nth-child(5) {
+        left: 60px;
+    }
+
 }

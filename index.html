@@ -1,42 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Encriptador Alura - Lorenzo Téllez</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="assets/aluraLogo.png" type="image/icon type">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="preload">
+    <div id="preloader_4">
+        <span></span>
+        <span></span>
+        <span></span>
+        <img src="assets/alurachallenge.png" alt="Alura + Oracle" width="200" id="logo2">
+        <span></span>
+        <span></span>
+        <span></span>
+        
+    </div>
+
     <header>
-
+        <img alt="Logo de Alura" class="logo" src="assets/Logo.png">
     </header>
+
     <main class="principal">
-        <textarea name="text" id="texto_usuario" class="texto_usuario" placeholder="Ingrese el texto aquí"></textarea>
+        <textarea name="text" id="texto_usuario" class="texto" cols="35" rows="10" placeholder="Ingrese el texto aquí"></textarea>
 
-        <section class="botones">
-            <p><span class="iconify" data-icon="bi:exclamation-circle-fill"></span> Solo letras minúsculas y sin acento</p>
-            <input type="submit" value="Encriptar" class="encriptar" id="encriptar">
-            <input type="submit" value="Desencriptar" class="desencriptar" id="desencriptar">
-        </section>
-    
         <div class="resultado" id="resultado">
-
             <section class="resultado_mensaje" id="resultado_mensaje">
-                <textarea name="text" id="texto_resultado" class="texto_usuario"  cols="50" rows="12"></textarea>
+                <h1><img src="assets/Muñeco.png" alt="Imágen no encontrada" id="muneco"></h1>
+                <h2 id="mensaje_inicial" class="resultado_inicial">Ningún mensaje fue encontrado</h2>
+                <p id="mensaje_inicial_2" class="resultado_inicial_2">Ingresa el texto que desea encriptar o desencriptar</p>
+            </section>
+            
+            <section>
+                <textarea name="text" id="texto_resultado" class="texto" cols="50" rows="13" readonly></textarea>
                 <input type="submit" value="Copiar" class="copiar" id="copiar">
             </section>
-    
-            <section>
-                <img src="assets/Muñeco.png" alt="Imagen_muñeco" id="muñeco">
-                <h2 id="mensaje_inicial">Ningún mensaje fue encontrado</h2>
-                <p id="mensaje_inicial_2">Ingresa el texto que desea encriptar o desencriptar</p>
-            </section>
+        </div>
 
+        <div>
+            <section class="botones">
+                <p class="advertencia"><img src="assets/icono.png" alt="Advertencia" width="15" height="15"> Solo letras minúsculas y sin acento</p>
+                <input type="submit" value="Encriptar" class="encriptar" id="encriptar">
+                <input type="submit" value="Desencriptar" class="desencriptar" id="desencriptar">
+            </section>
         </div>
     </main>
 
-    
-</body>
+    <footer>
+        <p>Realizado por Lorenzo Téllez - Challenge: Encriptador de Texto </p> 
+        <p>Programa Oracle Next Education - Grupo 7 - 2024</p>
+    </footer>
 
-<script src="script.js"></script>
+    <div id="modal" class="modal">
+        <section class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message"></p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
