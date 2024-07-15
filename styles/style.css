@@ -50,7 +50,7 @@ header :focus{
 .logo{
 
     margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 155px;
 }
 
 #logo2 {
@@ -75,6 +75,19 @@ header :focus{
     background-color: var(--backgroundTexto) ;
     resize: none;
     transition: 1s;
+}
+
+.texto2{
+    height: 5%;
+    margin: 2% auto 0;
+    display: inline-block;
+    font-size: 32px;
+    color: var(--textAreaColor);
+    border: none;
+    background-color: var(--backgroundTexto) ;
+    resize: none;
+    transition: 1s;
+    margin-left: 120px;
 }
 
 

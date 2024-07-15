@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('preloader_4').style.display = 'none';
         document.body.classList.remove('preload'); // Elimina la clase de preload para mostrar el contenido principal
         document.querySelector('.principal').style.display = 'block'; // Muestra el contenido principal
-    }, 5000);
+    }, 2500);
 });
 
 function mostrarMensajeModal(mensaje) {
