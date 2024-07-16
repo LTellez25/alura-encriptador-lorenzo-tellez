@@ -39,8 +39,6 @@ body{
     background-color: #E5E5E5;
     font-family: 'inter';
     transition: opacity 1s; 
-    margin: 0;
-    padding: 0;
 }
 
 header :focus{
@@ -50,14 +48,17 @@ header :focus{
 .logo{
 
     margin-top: 40px;
-    margin-left: 155px;
+    margin-left: 85px;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #logo2 {
     margin-top: -20px; /* Ajusta el margen superior negativo para subir la imagen */
 }
-
-
 
 .principal{
     width: 90%;
@@ -78,15 +79,6 @@ header :focus{
 }
 
 .texto2{
-    height: 5%;
-    margin: 2% auto 0;
-    display: inline-block;
-    font-size: 32px;
-    color: var(--textAreaColor);
-    border: none;
-    background-color: var(--backgroundTexto) ;
-    resize: none;
-    transition: 1s;
     margin-left: 120px;
 }
 
@@ -128,6 +120,7 @@ textarea:focus{
 
 #muneco{
     visibility: visible;
+    
 }
 
 .resultado_inicial{
@@ -361,7 +354,8 @@ a{
         margin: 10% auto;
     }
 
-    .texto,.botones{
+
+    .texto,.botones,.texto2{
         display: block;
         width: 100%;
         margin: 5% auto;
