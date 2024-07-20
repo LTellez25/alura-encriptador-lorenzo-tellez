@@ -138,7 +138,11 @@ let inicioTour = () => {
           { element: '#desencriptar', popover: { title: 'Botón Desencriptar', description: 'Presiona este botón para desencriptar el texto que escribiste.' } },
           { element: '#resultado_mensaje', popover: { title: 'Resultado del Texto', description: 'Aquí se mostrará el resultado del texto encriptado o desencriptado.' } },
           { popover: { title: '¡Enhorabuena!', description: 'Has completado el recorrido. Ahora estás listo para encriptar y desencriptar tus mensajes con facilidad. ¡Empieza a explorar y personalizar tu experiencia!' } }
-        ]
+        ],
+        doneBtnText: 'Hecho', // Cambia el texto del botón "Done"
+        nextBtnText: 'Siguiente', // Cambia el texto del botón "Next"
+        prevBtnText: 'Anterior', // Cambia el texto del botón "Previous"
+        closeBtnText: 'Cerrar' // Cambia el texto del botón "Close"
     });
 
     
@@ -146,4 +150,28 @@ let inicioTour = () => {
     driverObj.drive();
 }
 
-inicioTour()
+document.querySelector("#btn-help").addEventListener("click", () => {
+    inicioTour()
+})
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    let swictherTheme = document.querySelector('.main__check');
+    let root = document.documentElement;
+
+    if(root.getAttribute('data-theme') === 'dark'){
+      swictherTheme.checked = true;      
+    } 
+
+    function toggleTheme(){
+        
+        let setTheme = this.checked ? 'dark' : 'light';
+        root.setAttribute('data-theme', setTheme);
+    
+        localStorage.setItem('theme', setTheme);
+    }
+    
+
+    swictherTheme.addEventListener('click', toggleTheme);
+
+});

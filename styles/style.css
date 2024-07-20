@@ -1,4 +1,6 @@
-:root{
+:root[data-theme="light"]{
+    --show-sun: block;
+    --show-moon: none;
     --textAreaColor: #13265c;
     --colorPlaceholder: #00008b;
     --backgroundTexto: #E5E5E5;
@@ -11,7 +13,35 @@
     --borderBoton: #13265c;
     --borderState: ridge;
     --hooverColor: #47478c;
-    
+    --bg-color: #E5E5E5;
+    --animation-sun: rotate 15s linear infinite;
+    --color-switcher: #c4c4c4;
+    --color-active: #c4c4c4;
+    --border-option: 20px solid #fff;
+}
+
+:root[data-theme="dark"]{
+    --show-sun: none;
+    --show-moon: block;
+    --bg-color: #1b1b24;
+    color: #ffffff;
+    --textAreaColor: #ffffff;
+    --colorPlaceholder: #ffffff;
+    --backgroundTexto: #1b1b24;
+    --footerColor: #ffffff;
+    --backgroundMensajes: #1b1b24;
+    --copiarDesencText: #ffffff;
+    --copiarDesencBackground: #3d3f43;
+    --encriptarText: #ffffff;
+    --encriptarBackground: #3c3c68;
+    --borderState: hidden;
+    --hooverColor: #1f1f56;
+    --logo: url("./Imagenes/whiteLogo.png");
+    --animation-moon: show 4s alternate infinite both;
+    --transform-option: translate(100%);
+    --color-switcher: #3B95FF;
+    --color-active: #3B95FF;
+    --border-option: 20px solid #fff;
 }
 
 
@@ -27,22 +57,40 @@
     }
 }
 
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Asegura que el padding y el border no afecten el tamaño total */
 }
 
-
-
 body{
-    background-color: #E5E5E5;
+    background-color: var(--bg-color);
     font-family: 'inter';
-    transition: opacity 1s; 
+    transition: 1s; 
 }
 
 header :focus{
     outline-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; 
 }
 
 .logo{
@@ -56,6 +104,60 @@ header :focus{
     user-select: none;
 }
 
+.main__light,
+.main__dark {
+    margin-top: -60px;
+    margin-left: auto;
+    margin-right: 15vw; /* Cambia el margen derecho a una unidad relativa */
+    width: max-content;
+    display: inline-block;
+    position: relative; /* Asegúrate de que el elemento esté posicionado correctamente */
+}
+.main__check {
+    position: absolute;
+    top: 30px;
+    left: calc(100% - 290px); /* Ajusta la posición horizontal usando cálculos relativos */
+    width: 50px;
+    height: 80px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.main__light {
+    display: var(--show-sun);
+}
+
+.main__dark {
+    display: var(--show-moon);
+}
+
+.main__theme::after {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+    gap: 10px; /* Espacio entre los elementos, ajusta según sea necesario */
+}
+
+#sun {
+    animation: var(--animation-sun, none);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+[id^="star"] {
+    animation: var(--animation-moon, none);
+}
+
+#star2 {
+    animation-delay: .7s;
+}
+
+#star3 {
+    animation-delay: 1.4s;
+}
+
+
+
 #logo2 {
     margin-top: -20px; /* Ajusta el margen superior negativo para subir la imagen */
 }
@@ -66,6 +168,27 @@ header :focus{
     
 }
 
+.btn-help{
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 99;
+    background-color: #ffffff;
+    color: var(--colorPlaceholder);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 2px 2px #10101031;
+    border: none;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+}
 .texto{
     height: 5%;
     margin: 2% auto 0;
@@ -90,6 +213,15 @@ textarea:focus{
 ::placeholder{
     color: var(--colorPlaceholder);
     opacity: 0.5;
+}
+
+.modosVisuales{
+    background: var(--darkMode);
+    height: 50px;
+    width: 50px;
+    margin: 20px 80px auto;
+    float: right;
+    cursor: pointer;
 }
 
 .resultado{
@@ -327,6 +459,50 @@ a{
     animation-delay: 0.8s;
 }
 
+/* Estilos personalizados para los botones */
+
+.driver-popover-next-btn {
+
+    color: var(--hooverColor)!important;
+    border-radius: 5px !important;
+    border: 2px solid var(--footerColor)!important;
+}
+
+.driver-popover-prev-btn {
+    color: var(--hooverColor)!important;
+    border-radius: 5px !important;
+    border: 2px solid var(--footerColor)!important;
+}
+
+.driver-popover-close-btn {
+    color: #000000 !important;
+    border-radius: 5px !important;
+}
+
+/* Personalización del popover */
+.driver-popover {
+    background-color: #ffffff !important;
+    color: var(--footerColor) !important;
+    border-radius: 8px !important;
+    border: 2px solid var(--colorPlaceholder) !important;
+}
+
+/* Personalización del botón del popover */
+.driver-popover .driver-popover-btn {
+    background-color: #ffcc00 !important;
+    color: #333 !important;
+}
+
+/* Personalización del tooltip */
+.driver-tooltip {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+    border: 1px solid #ffcc00 !important;
+}
+
+
+
 @keyframes preloader_4 {
     0%, 100% {
         opacity: 0.3;
@@ -425,4 +601,58 @@ a{
         left: 60px;
     }
 
+    .main__light, .main__dark {
+        margin-right: 1vw; 
+        margin-top: -170px;
+    }
+
+    .main__check {
+        left: calc(100% - 80px); 
+        top: 11vw;
+        width: 50px; 
+        height: 50px;
+        opacity: 0;
+        outline: none; /* Elimina el contorno al hacer clic */
+        user-select: none; /* Previene la selección del texto dentro del elemento */
+        -webkit-tap-highlight-color: transparent; /* Para navegadores móviles */
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .main__light, .main__dark {
+        margin-right: 1vw; 
+        margin-top: -150px;
+    }
+
+    .main__check {
+        left: calc(100% - 70px); 
+        top: 10vw;
+        width: 50px; 
+        height: 60px; 
+        opacity: 0;
+        outline: none; /* Elimina el contorno al hacer clic */
+        user-select: none; /* Previene la selección del texto dentro del elemento */
+        -webkit-tap-highlight-color: transparent; /* Para navegadores móviles */
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .main__light, .main__dark {
+        margin-right: 1vw; 
+        margin-top: -105px;
+    }
+
+    .main__check {
+        left: calc(100% - 95px); 
+        top: 12vw;
+        width: 100px; 
+        height: 50px; 
+        opacity: 0;
+        outline: none; /* Elimina el contorno al hacer clic */
+        user-select: none; /* Previene la selección del texto dentro del elemento */
+        -webkit-tap-highlight-color: transparent; /* Para navegadores móviles */
+    }
 }
