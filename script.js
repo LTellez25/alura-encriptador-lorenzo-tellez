@@ -136,8 +136,8 @@ let inicioTour = () => {
           { element: '#texto_usuario', popover: { title: 'Campo de Texto', description: 'Escribe aquí el texto que deseas encriptar o desencriptar.' } },
           { element: '#encriptar', popover: { title: 'Botón Encriptar', description: 'Presiona este botón para encriptar el texto que escribiste.', } },
           { element: '#desencriptar', popover: { title: 'Botón Desencriptar', description: 'Presiona este botón para desencriptar el texto que escribiste.' } },
-          { element: '#resultado_mensaje', popover: { title: 'Resultado del Texto', description: 'Aquí se mostrará el resultado del texto encriptado o desencriptado.' } },
-          { popover: { title: '¡Enhorabuena!', description: 'Has completado el recorrido. Ahora estás listo para encriptar y desencriptar tus mensajes con facilidad. ¡Empieza a explorar y personalizar tu experiencia!' } }
+          { element: '#resultado', popover: { title: 'Resultado del Texto', description: 'Aquí se mostrará el resultado del texto encriptado o desencriptado.' } },
+          { popover: { title: '¡Enhorabuena!', description: 'Has completado el recorrido. Ahora estás listo para encriptar y desencriptar tus textos con facilidad. ¡Recuerda que debes de ingresar textos en minúsculas y sin acentos!' } }
         ],
         doneBtnText: 'Hecho', // Cambia el texto del botón "Done"
         nextBtnText: 'Siguiente', // Cambia el texto del botón "Next"

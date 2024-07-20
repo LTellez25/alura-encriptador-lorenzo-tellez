@@ -173,7 +173,7 @@ header :focus{
     right: 12px;
     bottom: 12px;
     z-index: 99;
-    background-color: #ffffff;
+    background-color: var(--bg-color);;
     color: var(--colorPlaceholder);
     width: 60px;
     height: 60px;
@@ -383,7 +383,7 @@ a{
 }
   
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--bg-color);;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px #00000033;
@@ -401,10 +401,13 @@ a{
   
 .close {
     position: absolute;
-    top: 10px;
+    top: 0px;
     right: 10px;
     font-size: 25px;
     cursor: pointer;
+    outline: none; 
+    user-select: none; 
+    -webkit-tap-highlight-color: transparent; 
 }
   
 .close:hover,
@@ -415,11 +418,10 @@ a{
 }
 
 .preload .principal {
-    opacity: 0; /* Oculta el contenido principal mientras se muestra el preloader */
-    transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
 }
 
-/* Estilos del preloader */
 
 #preloader_4 {
     position: fixed;
@@ -430,8 +432,8 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff; /* Fondo del preloader */
-    z-index: 9999; /* Asegura que el preloader esté por encima de otros elementos */
+    background-color: var(--bg-color);; 
+    z-index: 9999; 
 }
 
 #preloader_4 span {
@@ -459,8 +461,6 @@ a{
     animation-delay: 0.8s;
 }
 
-/* Estilos personalizados para los botones */
-
 .driver-popover-next-btn {
 
     color: var(--hooverColor)!important;
@@ -479,28 +479,12 @@ a{
     border-radius: 5px !important;
 }
 
-/* Personalización del popover */
 .driver-popover {
-    background-color: #ffffff !important;
+    background-color: var(--bg-color)!important;
     color: var(--footerColor) !important;
     border-radius: 8px !important;
     border: 2px solid var(--colorPlaceholder) !important;
 }
-
-/* Personalización del botón del popover */
-.driver-popover .driver-popover-btn {
-    background-color: #ffcc00 !important;
-    color: #333 !important;
-}
-
-/* Personalización del tooltip */
-.driver-tooltip {
-    background-color: #333 !important;
-    color: #fff !important;
-    border-radius: 4px !important;
-    border: 1px solid #ffcc00 !important;
-}
-
 
 
 @keyframes preloader_4 {
@@ -516,12 +500,9 @@ a{
         box-shadow: 0px 20px 3px #0000000d;
     }
 }
-
-/* Estilos para mostrar el contenido después de la carga */
-
 .principal {
-    opacity: 1; /* Asegura que el contenido principal sea visible después de la carga */
-    transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
+    opacity: 1; 
+    transition: opacity 1s ease-in-out; 
 }   
 
 @media screen and (max-width:1024px){
@@ -576,8 +557,8 @@ a{
     }
 
     .modal-content {
-        width: 80%; /* Ancho del modal en dispositivos más pequeños */
-        margin: 15% auto; /* Margen para centrar verticalmente en dispositivos más pequeños */
+        width: 80%;
+        margin: 15% auto; 
     }
 
     #preloader_4 span {
@@ -612,9 +593,9 @@ a{
         width: 50px; 
         height: 50px;
         opacity: 0;
-        outline: none; /* Elimina el contorno al hacer clic */
-        user-select: none; /* Previene la selección del texto dentro del elemento */
-        -webkit-tap-highlight-color: transparent; /* Para navegadores móviles */
+        outline: none; 
+        user-select: none; 
+        -webkit-tap-highlight-color: transparent; 
     }
 
 }
@@ -632,9 +613,9 @@ a{
         width: 50px; 
         height: 60px; 
         opacity: 0;
-        outline: none; /* Elimina el contorno al hacer clic */
-        user-select: none; /* Previene la selección del texto dentro del elemento */
-        -webkit-tap-highlight-color: transparent; /* Para navegadores móviles */
+        outline: none; 
+        user-select: none; 
+        -webkit-tap-highlight-color: transparent; 
     }
 }
 
@@ -651,8 +632,8 @@ a{
         width: 100px; 
         height: 50px; 
         opacity: 0;
-        outline: none; /* Elimina el contorno al hacer clic */
-        user-select: none; /* Previene la selección del texto dentro del elemento */
-        -webkit-tap-highlight-color: transparent; /* Para navegadores móviles */
+        outline: none; 
+        user-select: none; 
+        -webkit-tap-highlight-color: transparent; 
     }
 }
