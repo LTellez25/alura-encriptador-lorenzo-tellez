@@ -29,6 +29,12 @@ Bienvenido al **Encriptador Alura**. Esta aplicación web es el resultado de nue
 ### **Desencriptando Mensaje Secreto**
 ![Ejemplo de encriptación](screenshots/decifrando_mensaje.png)
 
+### **Pantalla Principal Dark**
+![Pantalla principal](screenshots/noche.png)
+
+### **Recorrido**
+![Pantalla principal](screenshots/guia.png)
+
 ---
 
 ## 💻 Tecnologías Utilizadas
