@@ -7,36 +7,34 @@ document.addEventListener('DOMContentLoaded', function () {
     desencriptar.onclick = desencriptarMensaje;
     copiar.onclick = copiarTexto;
 
-    // Ocultar preloader después de 5 segundos
     setTimeout(() => {
         document.getElementById('preloader_4').style.display = 'none';
-        document.body.classList.remove('preload'); // Elimina la clase de preload para mostrar el contenido principal
-        document.querySelector('.principal').style.display = 'block'; // Muestra el contenido principal
+        document.body.classList.remove('preload');
+        document.querySelector('.principal').style.display = 'block';
     }, 2500);
-
 });
 
 function mostrarMensajeModal(mensaje) {
     let modal = document.getElementById("modal");
-    let span = document.getElementsByClassName("close")[0];
-    let modalMessage = document.getElementById("modal-message");
+    let cerrar = document.getElementsByClassName("close")[0];
+    let modalMensaje = document.getElementById("modal-message");
 
-    modalMessage.textContent = mensaje;
+    modalMensaje.textContent = mensaje;
     modal.style.display = "block";
 
-    span.onclick = function() {
+    cerrar.onclick = function() {
         modal.style.display = "none";
     }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    window.onclick = function(evento) {
+        if (evento.target == modal) {
             modal.style.display = "none";
         }
     }
 }
 
 function mostrar(mensaje) {
-    document.querySelector("#texto_resultado").innerHTML = mensaje;
+    document.querySelector("#texto_resultado").textContent = mensaje;
 }
 
 function actualizarPantalla() {
@@ -58,7 +56,7 @@ function encriptarMensaje() {
     }
 
     if (!esMensajeValido(mensaje)) {
-        mostrarMensajeModal("Debe de ingresar un mensaje en minúsculas y sin acentos");
+        mostrarMensajeModal("El mensaje solo puede contener letras minusculas sin acentos ni caracteres especiales");
         return;
     }
 
@@ -95,12 +93,12 @@ function desencriptarMensaje() {
     let letras = ['a', 'e', 'i', 'o', 'u'];
 
     if (mensaje === "") {
-        mostrarMensajeModal("Debe escribir un mensaje para poder decencriptarlo");
+        mostrarMensajeModal("Debe escribir un mensaje para poder desencriptarlo");
         return;
     }
 
     if (!esMensajeValido(mensaje)) {
-        mostrarMensajeModal("Debe de ingresar un mensaje en minúsculas y sin acentos");
+        mostrarMensajeModal("El mensaje solo puede contener letras minusculas sin acentos ni caracteres especiales");
         return;
     }
 
@@ -117,15 +115,14 @@ function copiarTexto() {
     let texto = document.querySelector("#texto_resultado").textContent;
     navigator.clipboard.writeText(texto).then(() => {
         mostrarMensajeModal("Texto copiado al portapapeles");
-    }).catch(err => {
-        mostrarMensajeModal("Error al copiar texto: ", err);
+    }).catch(error => {
+        mostrarMensajeModal("Error al copiar texto: " + error);
     });
 }
 
 function esMensajeValido(mensaje) {
-    return mensaje !== "" && !/[A-Zá-úÁ-Ú]/.test(mensaje) && mensaje.length > 0;
+    return /^[a-z 0-9]+$/.test(mensaje);
 }
-
 
 let inicioTour = () => {
     let driver = window.driver.js.driver;
@@ -133,19 +130,17 @@ let inicioTour = () => {
     let driverObj = driver({
         showProgress: true,
         steps: [
-          { element: '#texto_usuario', popover: { title: 'Campo de Texto', description: 'Escribe aquí el texto que deseas encriptar o desencriptar.' } },
-          { element: '#encriptar', popover: { title: 'Botón Encriptar', description: 'Presiona este botón para encriptar el texto que escribiste.', } },
-          { element: '#desencriptar', popover: { title: 'Botón Desencriptar', description: 'Presiona este botón para desencriptar el texto que escribiste.' } },
-          { element: '#resultado', popover: { title: 'Resultado del Texto', description: 'Aquí se mostrará el resultado del texto encriptado o desencriptado.' } },
-          { popover: { title: '¡Enhorabuena!', description: 'Has completado el recorrido. Ahora estás listo para encriptar y desencriptar tus textos con facilidad. ¡Recuerda que debes de ingresar textos en minúsculas y sin acentos!' } }
+          { element: '#texto_usuario', popover: { title: 'Campo de Texto', description: 'Escribe aqui el texto que deseas encriptar o desencriptar.' } },
+          { element: '#encriptar', popover: { title: 'Boton Encriptar', description: 'Presiona este boton para encriptar el texto que escribiste.', } },
+          { element: '#desencriptar', popover: { title: 'Boton Desencriptar', description: 'Presiona este boton para desencriptar el texto que escribiste. Recuerda que debes ingresar un texto ya encriptado!' } },
+          { element: '#resultado', popover: { title: 'Resultado del Texto', description: 'Aqui se mostrara el resultado del texto encriptado o desencriptado.' } },
+          { popover: { title: 'Enhorabuena!', description: 'Has completado el recorrido. Ahora estas listo para encriptar y desencriptar tus textos con facilidad. Recuerda que debes ingresar textos en minusculas y sin acentos!' } }
         ],
-        doneBtnText: 'Hecho', // Cambia el texto del botón "Done"
-        nextBtnText: 'Siguiente', // Cambia el texto del botón "Next"
-        prevBtnText: 'Anterior', // Cambia el texto del botón "Previous"
-        closeBtnText: 'Cerrar' // Cambia el texto del botón "Close"
+        doneBtnText: 'Hecho',
+        nextBtnText: 'Siguiente',
+        prevBtnText: 'Anterior',
+        closeBtnText: 'Cerrar'
     });
-
-    
 
     driverObj.drive();
 }
